@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+        <h1>Cafe Far Far</h1>
+        <!-- <nav>
+            {% for item in site.data.nav.header %}
+                {% if item.url == page.url %}
+                    <b>{{ item.title }}</b>
+                {% else %}
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                {% endif %}
+                {% if forloop.last == false %}
+                    |
+                {% endif %}
+            {% endfor %}
+        </nav> -->
+    </header>
+    {% if page.url != "/" %}
+        <h1>{{ page.title }}</h1>
+    {% endif %}
+    {% if page.layout == "post" %}
+        <i>Published {{ page.date | date: "%A, %B %e, %Y at %I:%M %p %Z" }}.</i>
+    {% endif %}
+
+    <br>
+
+    <section>
+      {{ content }}
+    </section>
+
+    <hr>
+    <!-- <footer>
+        {{ site.data.text.footer }}
+    </footer> -->
+  </body>
+</html>
